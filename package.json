@@ -1,0 +1,32 @@
+{
+  "name": "rpg-turn-battle",
+  "version": "0.0.1",
+  "description": "Simple turn based battle system.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsxragnarok/turn-based-rpg-battle.git"
+  },
+  "keywords": [
+    "rpg",
+    "turn",
+    "battle",
+    "turn-based"
+  ],
+  "author": "Kevin Phung <phung.kevin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsxragnarok/turn-based-rpg-battle/issues"
+  },
+  "homepage": "https://github.com/dsxragnarok/turn-based-rpg-battle#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2"
+  }
+}
