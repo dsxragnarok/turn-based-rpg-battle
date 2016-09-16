@@ -6,17 +6,9 @@ var Unit = module.exports = function (parameters) {
       throw new Error('Unit must have a name');
    }
 
-   var name = parameters.name;
-   var health = parameters.health || 0;
-   var attack = parameters.attack || 0;
-   var defense = parameters.defense || 0;
-   var speed = parameters.speed || 0;
-
-   return {
-      name: name,
-      health: health,
-      attack: attack,
-      defense: defense,
-      speed: speed
-   };
+   this.name = parameters.name;
+   this.health = parameters.health || 0;
+   this.attack = parameters.attack || 0;
+   this.defense = parameters.defense || 0;
+   this.speed = parameters.speed || 0;
 }; // end Unit class
