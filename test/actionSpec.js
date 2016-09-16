@@ -10,6 +10,9 @@ describe('Action class', function () {
 
    });
 
-   it('should instantiate an action');
+   it('should instantiate an action', function () {
+      var action = new Action();
+      expect(action).to.be.instanceof(Action);
+   });
    it('should have an perform method');
 });
