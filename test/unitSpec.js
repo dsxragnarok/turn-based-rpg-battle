@@ -22,6 +22,10 @@ describe('Unit class', function () {
       unit = null;
    });
 
+   it('should instantiate a unit', function () {
+      expect(unit).to.be.instanceof(Unit);
+   });
+
    it('should throw error with no configuration passed to constructor', function () {
       expect(Unit.bind(Unit)).to.throw('Unit must be instantiated with some parameters');
    });
