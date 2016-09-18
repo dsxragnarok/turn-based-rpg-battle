@@ -7,16 +7,13 @@
    * actions : list of [Action]
 
 [Action]
-   The base action class. Every action should derive from this class.
+   Each action will be it's own function object.
 
-   * initialize : function - sets up the action.
-   * actor : Unit - required, an action must have an actor.
-   * [target] : Unit | Array - optional, the target can be a single unit or multiple units.
-   * act : function - apply the action.
+   [Attack]
+      must take a Unit actor.
 
-   Notes: an action should first be initialized with Action.initialize. To actually
-          perform the action, it should be sufficient to invoke Action(any parameters);
 
+[Action Queue] - priority queue based on time / speed?
 
 [Status]
    * effect
