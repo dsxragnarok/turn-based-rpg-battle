@@ -18,9 +18,29 @@ describe('Party class', function () {
    it('should instantiate a party', function () {
       expect(party).to.be.instanceof(Party);
    });
+
    it('should instantiate with zero members by default', function () {
       expect(party.size()).to.be.equal(0);
    });
+
+   it('should be able to instantiate with a list of units', function () {
+      var Terra = new Unit({name: 'Terra'});
+      var Celes = new Unit({name: 'Celes'});
+      var Rydia = new Unit({name: 'Rydia'});
+      var Rosa = new Unit({name: 'Rosa'});
+      var Lulu = new Unit({name: 'Lulu'});
+
+      var units = [Terra, Celes, Rydia, Rosa, Lulu];
+
+      party = new Party(units);
+
+      expect(party.size()).to.be.equal(units.length);
+
+      units.forEach(function (unit) {
+         expect(party.contains(unit)).to.be.true;
+      });
+   });
+
    it('should be able to add a unit', function () {
       party.add(new Unit({name: 'Kain'}));
       expect(party.size()).to.be.equal(1);
@@ -28,6 +48,7 @@ describe('Party class', function () {
       party.add(new Unit({name: 'Cecil'}));
       expect(party.size()).to.be.equal(2);
    });
+
    it('should be able to find a unit it contains', function () {
       var Lafihna = new Unit({name: 'Lafihna'});
       party.add(new Unit({name: 'Danihka'}));
@@ -37,6 +58,7 @@ describe('Party class', function () {
 
       expect(party.contains(Lafihna)).to.be.true;
    });
+
    it('should know how many units it has', function () {
       party.add(new Unit({name: 'Lenneth'}));
       party.add(new Unit({name: 'Hrist'}));
@@ -44,6 +66,7 @@ describe('Party class', function () {
 
       expect(party.size()).to.be.equal(3);
    });
+
    it('should be able to find a unit by name', function () {
       var Calvin = new Unit({name: 'Calvin'});
       party.add(new  Unit({name: 'Jordan'}));
@@ -52,6 +75,7 @@ describe('Party class', function () {
 
       expect(party.contains('Jordan')).to.be.true;
    });
+
    it('should be able to remove a unit', function () {
       var Rydia = new Unit({name: 'Rydia'});
       party.add(new Unit({name: 'Rosa'}));

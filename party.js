@@ -2,6 +2,12 @@ var Unit = require('./unit');
 
 var Party = function () {
    this.members = [];
+
+   if (arguments.length > 0 &&
+      Array.isArray(arguments[0])) {
+
+      this.members = arguments[0];
+   }
 };
 
 Party.prototype = {
