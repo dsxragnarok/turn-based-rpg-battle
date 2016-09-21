@@ -1,5 +1,8 @@
 var Unit = require('../unit');
 
+// TODO: implement a more robust and interesting damage algorithm,
+// taking into account Unit attributes.
+
 /*
  * Calculates the damage and applies it to the target.
  * damage = actor's attack - target's defense. Minimum damage = 1
@@ -19,6 +22,12 @@ var Attack = function (actor, target) {
    var damage = Math.max(1, actor.attack - target.defense);
 
    target.health -= damage;
+
+   console.info(actor.name + ' attacks ' + target.name + ' for ' + damage + ' damage!');
+   console.info(target.name + ' has ' + target.health + ' remaining health.');
+
+   // TODO: send damage event [ReceiveDamage] or
+   // target.onReceiveDamage( damage )
 
    return damage;
 };
