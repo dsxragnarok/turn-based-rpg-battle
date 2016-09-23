@@ -46,6 +46,12 @@ Party.prototype = {
       }
 
       return -1;
+   },
+   getMembers: function () {
+      return this._members;
+   },
+   forEach: function (callback) {
+      this._members.forEach(callback);
    }
 };
 

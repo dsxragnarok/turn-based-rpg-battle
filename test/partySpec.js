@@ -87,4 +87,34 @@ describe('Party class', function () {
       expect(party.contains('Rydia')).to.be.false;
       expect(unit).to.equal(Rydia);
    });
+
+   it('should return a list of its members', function () {
+      var Terra = new Unit({name: 'Terra'});
+      var Celes = new Unit({name: 'Celes'});
+      var Rydia = new Unit({name: 'Rydia'});
+      var Rosa = new Unit({name: 'Rosa'});
+      var Lulu = new Unit({name: 'Lulu'});
+
+      var units = [Terra, Celes, Rydia, Rosa, Lulu];
+
+      var party = new Party(units);
+
+      expect(party.getMembers()).to.equal(units);
+   });
+
+   it('should be able to iterate through each member', function () {
+      var Terra = new Unit({name: 'Terra'});
+      var Celes = new Unit({name: 'Celes'});
+      var Rydia = new Unit({name: 'Rydia'});
+      var Rosa = new Unit({name: 'Rosa'});
+      var Lulu = new Unit({name: 'Lulu'});
+
+      var units = [Terra, Celes, Rydia, Rosa, Lulu];
+      var party = new Party(units);
+
+      expect(party.forEach).to.be.a('function');
+      party.forEach(function (unit, index) {
+         expect(unit).to.equal(units[index]);
+      });
+   });
 });
