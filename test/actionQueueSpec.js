@@ -165,7 +165,7 @@ describe('Action Queue', function () {
       expect(decide).to.be.calledOnce;
       expect(jump).to.be.calledOnce;
    });
-   it('should sort the actions in ascending order by speed', function () {
+   it('should be sorted in ascending order by speed', function () {
       actions.queue(tesractAction); // speed: 50
       actions.queue(debonAction);   // speed: 20
       actions.queue(keineAction);   // speed: 5
@@ -173,7 +173,23 @@ describe('Action Queue', function () {
 
       var expectedOrder = [keineAction, debonAction, rynsAction, tesractAction];
 
-      var index = 0;
+      actions.forEach(function (action, index) {
+         expect(action).to.deep.equal(expectedOrder[index]);
+      });
+   });
+   it('should be able to re-prioritize', function () {
+      actions.queue(tesractAction); // speed: 50
+      actions.queue(debonAction);   // speed: 20
+      actions.queue(keineAction);   // speed: 5
+      actions.queue(rynsAction);    // speed: 30
+
+      tesractAction.speed = 2;
+      keineAction.speed = 100;
+      rynsAction.speed = 1;
+
+      actions.prioritize();
+
+      var expectedOrder = [rynsAction, tesractAction, debonAction, keineAction];
       actions.forEach(function (action, index) {
          expect(action).to.deep.equal(expectedOrder[index]);
       });

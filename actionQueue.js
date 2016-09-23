@@ -26,6 +26,9 @@ ActionQueue.prototype = {
    },
    forEach: function (callback) {
       this._queue.forEach(callback);
+   },
+   prioritize: function () {
+      this._queue.sort(defaultComparator);
    }
 };
 
